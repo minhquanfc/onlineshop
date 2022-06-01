@@ -1,0 +1,160 @@
+body {
+  /*padding: 50px;*/
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#page{
+  background-color: white;
+  margin: auto;
+  padding: 0px;
+  width: 100%;
+  min-height: 700px;
+}
+.bg-login{
+  background-color:rgb(240, 240, 240);
+}
+.formlogin{
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  border-width: 1px ;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  /*border: 1px solid black;*/
+}
+.h1-login{
+  text-align: center;
+  font-size: 30px;
+  padding: 10px;
+}
+.loginform{
+  margin-top: 20px;
+}
+.btnlogin{
+  width: 100px;
+  height: 40px;
+  background-color: #A1CCA5;
+  color: #000;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  text-align: center;
+  margin-left: 180px;
+  margin-top: 10px;
+}
+.textlogin{
+  margin-left: 130px;
+  margin-top: 20px;
+}
+
+/* //// table */
+#headerlist{
+  height: 20px;
+}
+.datalist{
+  background-color: #ffffff;
+  /*border-radius: 20px;*/
+  padding: 20px;
+}
+.tables {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+/* ///// add */
+.adddata{
+  width: 1000px;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 20px;
+}
+.btnadd{
+  width: 100px;
+  height: 40px;
+  background-color: burlywood;
+  color: #000;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  text-align: center;
+  margin-left: 400px;
+  margin-top: 10px;
+}
+#inputGroupFile02{
+  height: 45px;
+}
+#addProduct{
+  width: 1000px;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 20px;
+}
+#btnAction{
+  margin: 5px;
+}
+/*//home*/
+.h1-home{
+  font-size: 50px;
+  font-weight: bold;
+}
+.font-home{
+  margin-top: 50px;
+}
+.btn-home{
+  margin-left: 20px;
+  margin-top: 20px;
+}
+#truyen-home{
+  padding: 10px;
+
+}
+#card-home{
+  margin-left: 50px;
+
+  margin-top: 20px;
+}
+.rows{
+  display: flex;
+  ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: 0px;
+}
+.list-home{
+  background-color: white;
+}
+/*.cuoitrang{*/
+/*  height: 50px;*/
+/*  background-color: #80BEAF;*/
+/*  text-align: center;*/
+/*}*/
+.formUser{
+  padding: 20px;
+}
+.formPost{
+  padding: 20px;
+}
+.navbar{
+  background-color: #78E670;
+}
+#timkiem{
+  width: 300px;
+  margin-left: 750px;
+  position: relative;
+  top: -35px;
+}

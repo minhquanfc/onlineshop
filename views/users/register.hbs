@@ -1,0 +1,32 @@
+<div class="formlogin">
+    <p class="h1-login text-primary">Đăng ký</p>
+    <div class="loginform">
+        <form action="/register" method="POST" autocomplete="off">
+            {{#if msg}}
+                <p class="text-danger">{{{msg}}}</p>
+            {{/if}}
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Tên</label>
+                <input type="text" name="ten" class="form-control" id="exampleFormControlInput1" placeholder="Nhập lại password">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email</label>
+                <input type="text" name="email" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleFormControlInput1" placeholder="Password">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Số điện thoại</label>
+                <input type="number" name="sodienthoai" class="form-control" id="exampleFormControlInput1" placeholder="Số điện thoại">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Địa chỉ</label>
+                <input type="text" name="diachi" class="form-control" id="exampleFormControlInput1" placeholder="Địa chỉ">
+            </div>
+            <Button type="submit" class="btnlogin">Đăng ký</Button>
+            <p class="textlogin">Bạn đã có tài khoản ? <a href="/login">Đăng nhập</a></p>
+        </form>
+    </div>
+</div>

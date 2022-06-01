@@ -1,0 +1,36 @@
+<div class="adddata">
+    <h3>Cập nhật</h3>
+    <form action="" method="POST">
+        {{#if msg}}
+            <p class="text-danger">{{{msg}}}</p>
+        {{/if}}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tên</label>
+            <input type="text" name="ten" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Tên" value="{{itemUser.ten}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <input type="text" name="email" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Email" value="{{itemUser.email}}">
+        </div>
+<!--        <div class="mb-3">-->
+<!--            <label for="exampleFormControlInput1" class="form-label">Password</label>-->
+<!--            <input type="password" name="password" class="form-control" id="exampleFormControlInput1"-->
+<!--                   placeholder="Email" value="{{itemUser.password}}">-->
+<!--        </div>-->
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Số điện thoại</label>
+            <input type="text" name="sodienthoai" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Số điện thoại" value="{{itemUser.sodienthoai}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Địa chỉ</label>
+            <input type="text" name="diachi" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Địa chỉ" value="{{itemUser.diachi}}">
+        </div>
+        <br>
+        <Button type="submit" class="btn btn-primary">Thêm</Button>
+    </form>
+
+</div>

@@ -1,0 +1,43 @@
+<div class="adddata">
+    <h3>Thêm hàng</h3>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {{#if msg}}
+            <p class="text-danger">{{{msg}}}</p>
+        {{/if}}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tên hàng</label>
+            <input type="text" name="tensanpham" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Tên sản phẩm">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Mô tả</label>
+            <input type="text" name="mota" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Mô tả">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Giá</label>
+            <input type="text" name="giasanpham" class="form-control" id="exampleFormControlInput1"
+                   placeholder="Giá sản phẩm">
+        </div>
+        <div class="mb-3">
+            <span class="form-label">Loại : </span>
+<!--            <input type="text" name="loai" class="form-control" placeholder="Loại"></input>-->
+        <select class="form-select" aria-label="Default select example" name="loai" autofocus>
+            <option value="dienthoai" selected >Điện thoại</option>
+            <option value="maytinh">Máy tính</option>
+            <option value="ipad">Ipad</option>
+            <option value="dongho">Đồng hồ</option>
+            <option value="tainghe">Tai nghe</option>
+            <option value="phukien">Phụ kiện</option>
+        </select>
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Ảnh</label>
+            <input type="file" class="form-control" id="exampleFormControlInput1" name="anhsanpham">
+        </div>
+        <br>
+        <Button type="submit" class="btn btn-primary">Thêm</Button>
+        <a href="/products" class="btn btn-primary">List</a>
+    </form>
+
+</div>

@@ -16,7 +16,7 @@ exports.postLogin = async (req,res,next)=>{
     const user = await UserModel.findOne({
         email:body.email
     });
-    console.log(user.account!="admin")
+    // console.log(user.account!="admin")
     // if (user.account != "admin"){
     //         return res.render('./users/login',{msg:'Tài khoản và mật khẩu không đúng'});
     // }

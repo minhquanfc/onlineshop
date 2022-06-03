@@ -6,8 +6,8 @@ exports.getFormAdd = (req,res,next)=>{
 }
 exports.postAdd = async (req,res,next)=>{
     console.log(req.body);
-    if (req.body.ten.length==0 && req.body.loai  == 0){
-        return res.render('./categorys/add',{msg:'Vui lòng không để trống'})
+    if (req.body.ten ==""){
+        return res.render('./categorys/add',{msg:'Vui lòng nhập tên'})
     }
     try {
         fs.rename(req.file.destination + req.file.filename,
@@ -19,7 +19,7 @@ exports.postAdd = async (req,res,next)=>{
             }
         )
     }catch (err){
-        return res.render('add',{msg:"Vui lòng thêm ảnh"})
+        return res.render('./categorys/add',{msg:"Vui lòng thêm ảnh"})
     }
     const filename = 'http://localhost:3000/uploads/'+req.file.originalname;
 

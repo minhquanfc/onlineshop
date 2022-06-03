@@ -16,6 +16,10 @@ exports.postLogin = async (req,res,next)=>{
     const user = await UserModel.findOne({
         email:body.email
     });
+    console.log(user.account!="admin")
+    if (user.account != "admin"){
+            return res.render('./users/login',{msg:'Tài khoản và mật khẩu không đúng'});
+    }
     if (user)
     {
         console.log(user)
@@ -31,7 +35,7 @@ exports.postLogin = async (req,res,next)=>{
         }
     } else {
         // res.status(401).json({error:'Khong ton tai user'});
-        res.render('./users/login',{msg:'không tồn tại user'})
+        res.render('./users/login',{msg:'Không tồn tại user'})
     }
 }
 
@@ -86,7 +90,13 @@ exports.postAdd = async (req,res,next)=>{
     const  salt = await bcrypt.genSalt(10);
     console.log(salt);
     if (req.body.ten.length==0 && req.body.email.length==0 && req.body.password  == 0 && req.body.sodienthoai  == 0 && req.body.diachi  == 0){
-        return res.render('./users/edit:id',{msg:'Vui lòng không để trống'})
+        return res.render('./users/add',{msg:'Vui lòng không để trống'})
+    }
+    if (req.body.password.length<6){
+        return res.render('./users/add',{msg:'Vui lòng nhập mật khẩu trên 6 ký tự'})
+    }
+    if (req.body.sodienthoai.length<9){
+        return res.render('./users/add',{msg:'Vui lòng nhập số điện thoại trên 10 số'})
     }
     let objUser = {
         ten:req.body.ten,
@@ -114,6 +124,9 @@ exports.postEdit = async (req,res,next)=>{
     }
     if (req.body.ten.length==0 && req.body.email.length==0 && req.body.sodienthoai  == 0 && req.body.diachi  == 0){
         return res.render('./users/edit:id',{msg:'Vui lòng không để trống'})
+    }
+    if (req.body.sodienthoai.length<9){
+        return res.render('./users/edit:id',{msg:'Vui lòng nhập số điện thoại trên 10 số'})
     }
     let du_lieu = {
         ten:req.body.ten,

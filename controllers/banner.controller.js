@@ -16,7 +16,7 @@ exports.postAdd = async (req,res,next)=>{
             }
         )
     }catch (err){
-        return res.render('add',{msg:"Vui lòng thêm ảnh"})
+        return res.render('./banners/add',{msg:"Vui lòng thêm ảnh"})
     }
     const filename = 'http://localhost:3000/uploads/'+req.file.originalname;
 

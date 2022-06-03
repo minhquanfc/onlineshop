@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
 });
 router.get('/login',auth.ChuaDangNhap,userC.getFormLogin);
 router.post('/login',auth.ChuaDangNhap,userC.postLogin);
-router.get('/register',auth.ChuaDangNhap,userC.getFormRegister);
-router.post('/register',auth.ChuaDangNhap,userC.postRegister);
+// router.get('/register',auth.ChuaDangNhap,userC.getFormRegister);
+// router.post('/register',auth.ChuaDangNhap,userC.postRegister);
 
 
 module.exports = router;

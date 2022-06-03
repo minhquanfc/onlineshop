@@ -10,6 +10,8 @@ var usersRouter = require('./routes/users');
 var productRouter = require('./routes/products');
 var apiUser = require('./routes/api.user');
 var apiProduct = require('./routes/api');
+var catecoryRouter = require('./routes/category');
+var bannerRouter = require('./routes/banner');
 
 
 var app = express();
@@ -33,6 +35,9 @@ app.use('/users', usersRouter);
 app.use('/products', productRouter);
 app.use('/api/users', apiUser);
 app.use('/api', apiProduct);
+app.use('/category', catecoryRouter);
+app.use('/banner', bannerRouter);
+
 
 
 

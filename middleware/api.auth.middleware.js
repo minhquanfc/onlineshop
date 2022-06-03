@@ -4,6 +4,9 @@ require('dotenv').config();
 const chuoi_ky_tu_bi_mat = process.env.TOKEN_SEC_KEY;
 
 const auth = async (req,res,next) =>{
+    if(req.header('Authorization') == undefined){
+        return  res.status(403).send('Token empty?????');
+    }
     const token = req.header('Authorization').replace('Bearer','')
     const data = jwt.verify(token,chuoi_ky_tu_bi_mat)
     console.log("Token"+token)

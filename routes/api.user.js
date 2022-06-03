@@ -5,8 +5,8 @@ const auth_api = require('../middleware/api.auth.middleware');
 
 /* GET users listing. */
 
-router.get('/login', userapiC.postLogin);
-router.get('/register', userapiC.postReg);
+router.post('/login', userapiC.postLogin);
+router.post('/register', userapiC.postReg);
 router.get('/profile',auth_api,userapiC.getProfile);
 router.post('/logout',auth_api,userapiC.postLogout);
 router.post('/logoutall',auth_api,userapiC.postLogoutAll);

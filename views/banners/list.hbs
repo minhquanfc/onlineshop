@@ -1,0 +1,37 @@
+<div class="datalist">
+    <div class="col-12" id="headerlist">
+        <div class="">
+            <a href="/banner/add" class="btn btn-primary">Thêm</a>
+
+            <form class="d-flex" id="timkiem">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="tables">
+        <h3>Danh sách</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                                <th>ID</th>
+                <th>Ảnh</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each listBanner}}
+                <tr>
+                    <td scope="row">{{this._id}}</td>
+                    <td><img src="{{this.anh}}" width="100px" style="vertical-align: center"></td>
+                    <td>
+                        <a href="/banner/edit/{{this._id}}" class="btn btn-primary" id="btnAction">Edit</a>
+                        <a href="/banner/delete/{{this._id}}" onclick="return confirm('Bạn có muốn xóa không?')" id="btnAction" class="btn btn-danger">Del</a>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

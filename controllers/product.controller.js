@@ -24,7 +24,7 @@ exports.postAddProduct = async (req,res,next)=>{
     }catch (err){
         return res.render('add',{msg:"Vui lòng thêm ảnh"})
     }
-    const filename = 'http://localhost:3000/uploads/'+req.file.originalname;
+    const filename = 'https://adminshop68.herokuapp.com/uploads/'+req.file.originalname;
 
     const product = new productModel({
         tensanpham : req.body.tensanpham,
@@ -83,7 +83,7 @@ exports.postEdit=(req,res,next)=>{
     }catch (err){
         return res.render('./products/edit',{msg:"Vui lòng thêm ảnh"})
     }
-    const filename = 'http://localhost:3000/uploads/'+req.file.originalname;
+    const filename = 'https://adminshop68.herokuapp.com/uploads/'+req.file.originalname;
 
     let du_lieu = {
         tensanpham : req.body.tensanpham,

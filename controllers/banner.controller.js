@@ -18,7 +18,7 @@ exports.postAdd = async (req,res,next)=>{
     }catch (err){
         return res.render('./banners/add',{msg:"Vui lòng thêm ảnh"})
     }
-    const filename = 'http://localhost:3000/uploads/'+req.file.originalname;
+    const filename = 'https://adminshop68.herokuapp.com/uploads/'+req.file.originalname;
 
     const banner = new bannerModel({
         anh : filename,
@@ -66,7 +66,7 @@ exports.postEdit=(req,res,next)=>{
     }catch (err){
         return res.render('./banners/edit',{msg:"Vui lòng thêm ảnh"})
     }
-    const filename = 'http://localhost:3000/uploads/'+req.file.originalname;
+    const filename = 'https://adminshop68.herokuapp.com/uploads/'+req.file.originalname;
 
     let du_lieu = {
         anh : filename,

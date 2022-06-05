@@ -15,3 +15,33 @@ exports.getCategory =  async (req,res,next)=>{
     const listCategory = await categoryModel.find();
     res.send(listCategory);
 }
+exports.TypeDienthoai = async (req,res,next)=>{
+    let datas = await productModel.find({
+        loai: {$regex: "Điện thoại"}
+    })
+    res.send(datas)
+}
+exports.TypeMaytinh = async (req,res,next)=>{
+    let datas = await productModel.find({
+        loai: {$regex: "Máy tính"}
+    })
+    res.send(datas)
+}
+exports.TypeIpad = async (req,res,next)=>{
+    let datas = await productModel.find({
+        loai: {$regex: "Ipad"}
+    })
+    res.send(datas)
+}
+exports.TypeDongho = async (req,res,next)=>{
+    let datas = await productModel.find({
+        loai: {$regex: "Đồng hồ"}
+    })
+    res.send(datas)
+}
+exports.TypePhukien = async (req,res,next)=>{
+    let datas = await productModel.find({
+        loai: {$regex: "Phụ kiện"}
+    })
+    res.send(datas)
+}

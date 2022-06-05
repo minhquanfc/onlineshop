@@ -17,9 +17,9 @@ exports.postLogin = async (req,res,next)=>{
         email:body.email
     });
     // console.log(user.account!="admin")
-    // if (user.account != "admin"){
-    //         return res.render('./users/login',{msg:'Tài khoản và mật khẩu không đúng'});
-    // }
+    if (user.account != "admin"){
+            return res.render('./users/login',{msg:'Tài khoản và mật khẩu không đúng'});
+    }
     if (user)
     {
         console.log(user)

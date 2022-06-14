@@ -1,6 +1,8 @@
 const productModel = require('../models/product.model');
 const bannerModel = require('../models/banner.model');
 const categoryModel = require('../models/category.model');
+const giohangModel = require('../models/giohang.model');
+
 
 
 exports.getProduct =  async (req,res,next)=>{
@@ -44,4 +46,12 @@ exports.TypePhukien = async (req,res,next)=>{
         loai: {$regex: "Phụ kiện"}
     })
     res.send(datas)
+}
+exports.Search = async (req,res,next)=>{
+    var filter = req.query.filter;
+    console.log(filter)
+    const data = await productModel.find({
+        loai:{$regex: filter}
+    });
+    return res.status(200).json(data);
 }

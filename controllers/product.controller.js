@@ -1,9 +1,12 @@
 const productModel = require('../models/product.model');
+const catModel = require('../models/category.model');
+
 const fs = require('fs');
 
 //get form add
-exports.getFormAddProduct = (req,res,next)=>{
-    res.render('./products/add');
+exports.getFormAddProduct = async (req,res,next)=>{
+    const cat = await catModel.find();
+    res.render('./products/add',{cat:cat});
 }
 //post add
 exports.postAddProduct = async (req,res,next)=>{

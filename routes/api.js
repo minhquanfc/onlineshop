@@ -12,5 +12,8 @@ router.get('/getdongho', apiProduct.TypeDongho);
 router.get('/getmaytinh', apiProduct.TypeMaytinh);
 router.get('/getipad', apiProduct.TypeIpad);
 router.get('/getphukien', apiProduct.TypePhukien);
+router.get('/', apiProduct.Search);
+
+
 
 module.exports = router;

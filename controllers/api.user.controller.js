@@ -1,6 +1,7 @@
 const User = require('../models/user.model');
 const bcrypt = require("bcrypt");
 const {token} = require("morgan");
+const UserModel = require("../models/user.model");
 
 exports.postReg=async (req,res,next)=>{
     try {

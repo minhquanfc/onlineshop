@@ -5,8 +5,8 @@ const fs = require('fs');
 
 //get form add
 exports.getFormAddProduct = async (req,res,next)=>{
-    const cat = await catModel.find();
-    res.render('./products/add',{cat:cat});
+    const listCat = await catModel.find();
+    res.render('./products/add',{listCat:listCat});
 }
 //post add
 exports.postAddProduct = async (req,res,next)=>{

@@ -1,48 +1,80 @@
 const giohangModel = require("../models/giohang.model");
 const UserModel = require("../models/user.model");
-const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
-exports.postThemGioHang = async (req,res,next)=>{
-    // const giohang = new giohangModel({
-    //     tensanpham : req.body.tensanpham,
-    //     giasanpham : req.body.giasanpham,
-    //     soluong : req.body.soluong,
-    //     tongtien : req.body.tongtien,
-    //     anh : req.body.anh,
-    // });
-    // await giohang.save((err)=>{
-    //     if (err){
-    //         console.log("Loi add")
-    //     } else {
-    //         console.log("add succes")
-    //         res.send(giohang)
-    //     }
-    // })
+const proModel = require("../models/product.model");
 
-    // console.log(req.user._id)
-    const userid = "6296c9e3b61862495c60aed5"
-    const cart = new giohangModel({
-        user: userid,
-        products: {
-            // product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
-            tensanpham:req.body.tensanpham,
-            giasanpham:req.body.giasanpham,
-            soluong:req.body.soluong,
-            tongtien:req.body.tongtien,
-            anh:req.body.anh,
-        },
-})
-    console.log(cart)
-    await cart.save((err)=>{
-        if (err){
-            console.log("Loi add")
-        } else {
-            console.log("add succes")
-            res.send(cart)
+exports.postThemGioHang = async (req, res, next) => {
+    const {
+        productId,
+        qty = 1
+    } = req.body;
+    const user = req.user
+    // res.send(user)
+    let cart = await giohangModel
+        .findOne({ idUser: user._id })
+    if (!cart){
+        cart = new giohangModel({
+            idUser: user._id,
+            items: [
+                {
+                    productId: req.body.productId,
+                    qty
+                }
+            ]
+        });
+        await
+            cart.save();
+        return res.json({ success: true, cart })
+    }
+    const dataUpdate = {};
+    const productInCartIndex = cart
+        .items
+        .findIndex(item => String(item.productId) === productId);
+    if (productInCartIndex >= 0) {
+        dataUpdate.$inc = {
+            [`items.${productInCartIndex}.qty`]: qty
+        }
+    } else {
+        dataUpdate.$push = {
+            items: {
+                productId: productId,
+                qty
+            }
+        };
+    }
+    await giohangModel.updateOne({
+        _id: cart._id
+    }, dataUpdate);
+    return res.json({ success: true, dataUpdate });
+
+}
+
+exports.postDel = async (req, res, next) => {
+    const user = req.user
+    const { productId } = req.body
+    const cart = await giohangModel.findOne({
+        idUser: user._id
+    })
+    if (!cart) {
+        res.json({ success: true });
+    }
+    const productIndex = cart.items.findIndex(item => String(item.productId) === productId )
+    if (productIndex < 0) {
+        return res.json({ success: true });
+    }
+    const newItems = cart
+        .items
+        .splice(productIndex, 1);
+    await giohangModel.updateOne({
+        _id: cart._id
+    }, {
+        $set: {
+            items: newItems
         }
     })
+    return res.json({ success: true });
 }
-exports.getGioHang = async (req,res,next)=>{
+
+exports.getGioHang = async (req, res, next) => {
     const gioHang = await giohangModel.find();
     res.send(gioHang);
 }

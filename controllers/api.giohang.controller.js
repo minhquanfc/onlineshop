@@ -17,10 +17,10 @@ exports.postThemGioHang = async (req, res, next) => {
             products: [
                 {
                     productId: req.body.productId,
-                    // tensanpham:req.body.tensanpham,
-                    // giasanpham: req.body.giasanpham,
+                    tensanpham:req.body.tensanpham,
+                    giasanpham: req.body.giasanpham,
                     qty,
-                    // tongtien: req.body.tongtien
+                    tongtien: req.body.tongtien
                 }
             ]
         });
@@ -40,10 +40,10 @@ exports.postThemGioHang = async (req, res, next) => {
         dataUpdate.$push = {
             products: {
                 productId: productId,
-                // tensanpham:req.body.tensanpham,
-                // giasanpham: req.body.giasanpham,
+                tensanpham:req.body.tensanpham,
+                giasanpham: req.body.giasanpham,
                 qty,
-                // tongtien: req.body.tongtien
+                tongtien: req.body.tongtien
             }
         };
     }

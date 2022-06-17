@@ -13,16 +13,16 @@ const giohangSchema = mongoose.Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Product'
             },
-            // tensanpham: 'String',
-            // giasanpham: {
-            //     type: Number
-            // },
+            tensanpham: 'String',
+            giasanpham: {
+                type: Number
+            },
             qty: {
                 type: Number
             },
-            // tongtien:{
-            //     type:Number
-            // }
+            tongtien:{
+                type:Number
+            }
         }
     ]
 });

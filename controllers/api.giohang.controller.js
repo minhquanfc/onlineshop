@@ -14,10 +14,13 @@ exports.postThemGioHang = async (req, res, next) => {
     if (!cart){
         cart = new giohangModel({
             idUser: user._id,
-            items: [
+            products: [
                 {
                     productId: req.body.productId,
-                    qty
+                    // tensanpham:req.body.tensanpham,
+                    // giasanpham: req.body.giasanpham,
+                    qty,
+                    // tongtien: req.body.tongtien
                 }
             ]
         });
@@ -27,7 +30,7 @@ exports.postThemGioHang = async (req, res, next) => {
     }
     const dataUpdate = {};
     const productInCartIndex = cart
-        .items
+        .products
         .findIndex(item => String(item.productId) === productId);
     if (productInCartIndex >= 0) {
         dataUpdate.$inc = {
@@ -35,9 +38,12 @@ exports.postThemGioHang = async (req, res, next) => {
         }
     } else {
         dataUpdate.$push = {
-            items: {
+            products: {
                 productId: productId,
-                qty
+                // tensanpham:req.body.tensanpham,
+                // giasanpham: req.body.giasanpham,
+                qty,
+                // tongtien: req.body.tongtien
             }
         };
     }
@@ -57,18 +63,18 @@ exports.postDel = async (req, res, next) => {
     if (!cart) {
         res.json({ success: true });
     }
-    const productIndex = cart.items.findIndex(item => String(item.productId) === productId )
+    const productIndex = cart.products.findIndex(item => String(item.productId) === productId )
     if (productIndex < 0) {
         return res.json({ success: true });
     }
     const newItems = cart
-        .items
+        .products
         .splice(productIndex, 1);
     await giohangModel.updateOne({
         _id: cart._id
     }, {
         $set: {
-            items: newItems
+            products: newItems
         }
     })
     return res.json({ success: true });

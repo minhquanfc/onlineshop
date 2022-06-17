@@ -2,6 +2,8 @@ const UserModel = require('../models/user.model');
 const bcrypt = require('bcrypt');
 const fs = require("fs");
 const productModel = require("../models/product.model");
+const User = require("../models/user.model");
+const giohangModel = require("../models/giohang.model");
 
 exports.getFormLogin = (req,res,next)=>{
     res.render('./users/login');
@@ -161,4 +163,29 @@ exports.postDel = async (req,res,next)=>{
         }
     })
     res.redirect('/users')
+}
+exports.putEdit = async (req,res,next)=>{
+    const user = req.user
+    // console.log(user)
+    let dieu_kien ={
+        _id : user._id // id user
+    }
+    console.log(dieu_kien)
+    let du_lieu = {
+        ten:req.body.ten,
+        email : req.body.email,
+        sodienthoai : req.body.sodienthoai,
+        diachi : req.body.diachi,
+    }
+    console.log(du_lieu)
+    //goi lenh update
+    UserModel.updateOne(dieu_kien,du_lieu,function (err,res){
+        if (err)
+        {
+            console.log("Loi update"+err.message,{msg:'Lỗi update'})
+        }else {
+            console.log("update oke")
+        }
+    })
+    return res.json({ success: true });
 }

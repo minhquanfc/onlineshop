@@ -7,15 +7,22 @@ const giohangSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    items: [
+    products: [
         {
             productId: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Product'
             },
+            // tensanpham: 'String',
+            // giasanpham: {
+            //     type: Number
+            // },
             qty: {
                 type: Number
-            }
+            },
+            // tongtien:{
+            //     type:Number
+            // }
         }
     ]
 });

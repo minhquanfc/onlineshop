@@ -5,7 +5,6 @@ const proModel = require("../models/product.model");
 exports.postThemGioHang = async (req, res, next) => {
     const {
         productId,
-        qty = 1
     } = req.body;
     const user = req.user
     // res.send(user)
@@ -19,7 +18,7 @@ exports.postThemGioHang = async (req, res, next) => {
                     productId: req.body.productId,
                     tensanpham:req.body.tensanpham,
                     giasanpham: req.body.giasanpham,
-                    qty,
+                    soluong: req.body.soluong,
                     tongtien: req.body.tongtien
                 }
             ]
@@ -42,7 +41,7 @@ exports.postThemGioHang = async (req, res, next) => {
                 productId: productId,
                 tensanpham:req.body.tensanpham,
                 giasanpham: req.body.giasanpham,
-                qty,
+                soluong: req.body.soluong,
                 tongtien: req.body.tongtien
             }
         };

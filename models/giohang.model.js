@@ -17,7 +17,7 @@ const giohangSchema = mongoose.Schema({
             giasanpham: {
                 type: Number
             },
-            qty: {
+            soluong: {
                 type: Number
             },
             tongtien:{

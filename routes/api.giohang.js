@@ -5,7 +5,7 @@ var auth = require('../middleware/api.auth.middleware');
 /* GET users listing. */
 
 router.post('/themgiohang',auth, apiGioHang.postThemGioHang);
-router.get('/giohang', apiGioHang.getGioHang);
+router.get('/list',auth, apiGioHang.getGioHang);
 router.delete('/delete', auth, apiGioHang.postDel);
 
 

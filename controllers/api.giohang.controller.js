@@ -80,6 +80,9 @@ exports.postDel = async (req, res, next) => {
 }
 
 exports.getGioHang = async (req, res, next) => {
-    const gioHang = await giohangModel.find();
-    res.send(gioHang);
+    const user = req.user
+    let cart = await giohangModel
+        .findOne({ idUser: user._id })
+    res.send(cart);
+    console.log(cart)
 }

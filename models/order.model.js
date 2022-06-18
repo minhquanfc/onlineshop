@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const url = "mongodb+srv://minhquanfc:Minhquanfcpro68@cluster0.a207y.mongodb.net/OnlineShop?retryWrites=true&w=majority";
 mongoose.connect(url);
 
-const giohangSchema = mongoose.Schema({
+const orderSchema = mongoose.Schema({
     idUser : {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
@@ -17,7 +17,6 @@ const giohangSchema = mongoose.Schema({
             giasanpham: {
                 type: Number
             },
-            anhsanpham: 'String',
             soluong: {
                 type: Number
             },
@@ -27,5 +26,5 @@ const giohangSchema = mongoose.Schema({
         }
     ]
 });
-const GioHang = mongoose.model("GioHang",giohangSchema);
-module.exports = GioHang;
+const Order = mongoose.model("Order",orderSchema);
+module.exports = Order;

@@ -18,6 +18,7 @@ exports.postThemGioHang = async (req, res, next) => {
                     productId: req.body.productId,
                     tensanpham:req.body.tensanpham,
                     giasanpham: req.body.giasanpham,
+                    anhsanpham: req.body.anhsanpham,
                     soluong: req.body.soluong,
                     tongtien: req.body.tongtien
                 }
@@ -41,6 +42,7 @@ exports.postThemGioHang = async (req, res, next) => {
                 productId: productId,
                 tensanpham:req.body.tensanpham,
                 giasanpham: req.body.giasanpham,
+                anhsanpham: req.body.anhsanpham,
                 soluong: req.body.soluong,
                 tongtien: req.body.tongtien
             }

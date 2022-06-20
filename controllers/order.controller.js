@@ -40,7 +40,7 @@ exports.postDel = async (req, res, next) => {
         idUser: user._id
     }
     console.log(dieu_kien)
-    await giohangModel.deleteOne(dieu_kien,function (err){
+    await giohangModel.findOneAndDelete(dieu_kien,function (err){
         if (err)
         {
             console.log("Loi delete"+err.message)

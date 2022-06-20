@@ -8,7 +8,9 @@ const orderSchema = mongoose.Schema({
         ref: "User"
     },
     hoten:'String',
-    sodienthoai:'String',
+    sodienthoai:{
+        type: Number
+    },
     diachi:'String',
     ngaymua:'String',
     tongtien:{

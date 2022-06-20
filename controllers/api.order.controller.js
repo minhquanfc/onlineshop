@@ -32,16 +32,14 @@ exports.getOrder = async (req, res, next) => {
     res.send(cart);
     console.log(cart)
 }
-exports.postDel = async (req, res, next) => {
+exports.postDel = (req, res, next) => {
     const user = req.user
-    const order = await giohangModel.find({
-        idUser: user._id
-    })
+    // console.log(user._id)
     let dieu_kien ={
         idUser: user._id
     }
-    console.log(dieu_kien)
-    await giohangModel.findOneAndDelete(dieu_kien,function (err){
+    // // console.log(dieu_kien)
+    giohangModel.deleteOne(dieu_kien,function (err){
         if (err)
         {
             console.log("Loi delete"+err.message)

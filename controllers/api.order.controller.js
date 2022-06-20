@@ -1,6 +1,5 @@
 const orderModel = require('../models/order.model');
 const giohangModel = require("../models/giohang.model");
-const catModel = require("../models/category.model");
 
 exports.postOrder= async (req, res, next)=> {
     const user = req.user

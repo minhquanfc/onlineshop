@@ -60,6 +60,7 @@ exports.postThemGioHang = async (req, res, next) => {
 exports.postDel = async (req, res, next) => {
     const user = req.user
     const { productId } = req.body
+    console.log(req.params.id)
     const cart = await giohangModel.findOne({
         idUser: user._id
     })

@@ -34,7 +34,7 @@ exports.postThemGioHang = async (req, res, next) => {
         .findIndex(item => String(item.productId) === productId);
     if (productInCartIndex >= 0) {
         dataUpdate.$inc = {
-            [`items.${productInCartIndex}.qty`]: qty
+            [`items.${productInCartIndex}.soluong`]: soluong
         }
     } else {
         dataUpdate.$push = {

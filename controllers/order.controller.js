@@ -46,7 +46,7 @@ exports.postDel = async (req, res, next) => {
             console.log("Loi delete"+err.message)
         }else {
             console.log('Xoa thanh cong')
+            return res.json({ success: true });
         }
     })
-    return res.json({ success: true });
 }

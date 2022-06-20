@@ -14,6 +14,9 @@ router.post('/edit/:id',auth.YeuCauDangNhap,userC.postEdit);
 router.get('/delete/:id',auth.YeuCauDangNhap, userC.postDel);
 router.put('/edits', auth_api, userC.putEdit);
 
+router.get('/account',auth.YeuCauDangNhap,userC.getUser);
+router.get('/logout',userC.Logout);
+
 
 
 module.exports = router;

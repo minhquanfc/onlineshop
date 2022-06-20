@@ -6,12 +6,13 @@ exports.postOrder= async (req, res, next)=> {
     const user = req.user
     const order = new orderModel({
         idUser: user._id,
-        hoten:req.body.hoten,
-        sodienthoai:req.body.sodienthoai,
-        diachi:req.body.diachi,
-        ngaymua:req.body.ngaymua,
-        tongtien:req.body.tongtien,
-        trangthai:req.body.trangthai,
+        hoTen:req.body.hoTen,
+        soDienthoai:req.body.soDienthoai,
+        diaChi:req.body.diaChi,
+        ngayMua:req.body.ngayMua,
+        soLuong:req.body.soLuong,
+        tongTien:req.body.tongTien,
+        trangThai:req.body.trangThai,
         products: [
             {
                 tensanpham:req.body.tensanpham,
@@ -38,7 +39,6 @@ exports.postDel = (req, res, next) => {
     let dieu_kien ={
         idUser: user._id
     }
-    // // console.log(dieu_kien)
     giohangModel.deleteOne(dieu_kien,function (err){
         if (err)
         {

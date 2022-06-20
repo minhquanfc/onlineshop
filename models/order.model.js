@@ -7,16 +7,17 @@ const orderSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    hoten:'String',
-    sodienthoai:{
+    hoTen:'String',
+    soDienthoai:'String',
+    diaChi:'String',
+    ngayMua:'String',
+    soLuong:{
         type: Number
     },
-    diachi:'String',
-    ngaymua:'String',
-    tongtien:{
+    tongTien:{
         type: Number
     },
-    trangthai:'String',
+    trangThai:'String',
     products: [
         {
             tensanpham: 'String',

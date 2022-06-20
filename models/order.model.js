@@ -7,12 +7,16 @@ const orderSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
+    hoten:'String',
+    sodienthoai:'String',
+    diachi:'String',
+    ngaymua:'String',
+    tongtien:{
+        type: Number
+    },
+    trangthai:'String',
     products: [
         {
-            productId: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Product'
-            },
             tensanpham: 'String',
             giasanpham: {
                 type: Number
@@ -20,9 +24,6 @@ const orderSchema = mongoose.Schema({
             soluong: {
                 type: Number
             },
-            tongtien:{
-                type:Number
-            }
         }
     ]
 });

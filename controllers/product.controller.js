@@ -113,7 +113,7 @@ exports.postDelete=(req,res,next)=>{
     }
 
     //goi lenh update
-    productModel.deleteOne(dieu_kien,function (err){
+    productModel.deleteMany(dieu_kien,function (err){
         if (err)
         {
             console.log("Loi delete"+err.message)

@@ -13,6 +13,7 @@ var apiProduct = require('./routes/api');
 var catecoryRouter = require('./routes/category');
 var bannerRouter = require('./routes/banner');
 var GioHangRouter = require('./routes/api.giohang');
+var orderRouter = require('./routes/api.order');
 
 
 
@@ -40,6 +41,7 @@ app.use('/api', apiProduct);
 app.use('/category', catecoryRouter);
 app.use('/banner', bannerRouter);
 app.use('/api/giohang', GioHangRouter);
+app.use('/api/order', orderRouter);
 
 
 

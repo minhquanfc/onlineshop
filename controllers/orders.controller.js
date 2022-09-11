@@ -53,3 +53,7 @@ exports.postDelete=(req,res,next)=>{
     })
     res.redirect('/orders')
 }
+exports.getFormItemOrder = async (req, res, next)=>{
+    const listOrder = await orderModel.findById(req.params.id);
+    return res.json({ success: true, listOrder })
+}

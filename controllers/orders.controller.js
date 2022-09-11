@@ -26,7 +26,7 @@ exports.postEdit=(req,res,next)=>{
         _id : req.params.id
     }
     let du_lieu = {
-        trangthai:req.body.trangthai,
+        trangThai:req.body.trangthai,
     }
     orderModel.updateOne(dieu_kien,du_lieu,function (err,res){
         if (err)

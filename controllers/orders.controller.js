@@ -1,7 +1,6 @@
-
 const orderModel = require("../models/order.model");
 const fs = require("fs");
-const productModel = require("../models/product.model");
+
 exports.getFormlistOrder = async (req, res, next)=>{
     const listOrder = await orderModel.find();
     res.render('./orders/list',{listOrder:listOrder});
@@ -26,8 +25,9 @@ exports.postEdit=(req,res,next)=>{
         _id : req.params.id
     }
     let du_lieu = {
-        trangthai:req.body.trangthai,
+        trangThai:req.body.trangthai,
     }
+    console.log(du_lieu);
     orderModel.updateOne(dieu_kien,du_lieu,function (err,res){
         if (err)
         {
@@ -52,4 +52,8 @@ exports.postDelete=(req,res,next)=>{
         }
     })
     res.redirect('/orders')
+}
+exports.getFormItemOrder = async (req, res, next)=>{
+    const listOrder = await orderModel.findById(req.params.id);
+    return res.json({ success: true, listOrder })
 }

@@ -8,6 +8,7 @@ router.get('/edit/:id', auth.YeuCauDangNhap, order.getFormEditOrder);
 router.post('/edit/:id', auth.YeuCauDangNhap, order.postEdit);
 router.get('/delete/:id', auth.YeuCauDangNhap, order.postDelete);
 // router.delete('/delete', auth, apiOrder.postDel);
+router.get('/item/:id', auth.YeuCauDangNhap, order.getFormItemOrder);
 
 
 module.exports = router;

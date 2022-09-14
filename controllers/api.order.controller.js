@@ -50,5 +50,5 @@ exports.postDel = (req, res, next) => {
 }
 exports.getFormItemOrder = async (req, res, next)=>{
     const listOrder = await orderModel.findById(req.params.id);
-    return res.json({ success: true, listOrder })
+    return res.json({ success: true, listOrder})
 }

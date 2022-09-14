@@ -7,7 +7,7 @@ const order = require("../controllers/orders.controller");
 router.post('/add',auth, apiOrder.postOrder);
 router.get('/list',auth, apiOrder.getOrder);
 router.delete('/delete', auth, apiOrder.postDel);
-router.get('/item/:id', auth,  apiOrder.getFormItemOrder);
+router.get('/item/:id',  apiOrder.getFormItemOrder);
 
 
 module.exports = router;
